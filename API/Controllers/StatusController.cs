@@ -18,14 +18,14 @@ namespace API.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Status>>> GetStatuses()
         {
-            return await _context.Statuses.ToListAsync();
+            return await _context.Statuses!.ToListAsync();
         }
 
         // GET: api/Status/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Status>> GetStatus(int id)
         {
-            var status = await _context.Statuses.FindAsync(id);
+            var status = await _context.Statuses!.FindAsync(id);
 
             if (status == null)
             {
@@ -71,7 +71,7 @@ namespace API.Controllers
         [HttpPost]
         public async Task<ActionResult<Status>> PostStatus(Status status)
         {
-            _context.Statuses.Add(status);
+            _context.Statuses!.Add(status);
             await _context.SaveChangesAsync();
 
             return CreatedAtAction("GetStatus", new { id = status.Id }, status);
@@ -81,7 +81,7 @@ namespace API.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteStatus(int id)
         {
-            var status = await _context.Statuses.FindAsync(id);
+            var status = await _context.Statuses!.FindAsync(id);
             if (status == null)
             {
                 return NotFound();
@@ -95,7 +95,7 @@ namespace API.Controllers
 
         private bool StatusExists(int id)
         {
-            return _context.Statuses.Any(e => e.Id == id);
+            return _context.Statuses!.Any(e => e.Id == id);
         }
     }
 }

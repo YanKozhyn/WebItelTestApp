@@ -18,14 +18,14 @@ namespace API.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<InspectionType>>> GetInspectionTypes()
         {
-            return await _context.InspectionTypes.ToListAsync();
+            return await _context.InspectionTypes!.ToListAsync();
         }
 
         // GET: api/InspectionTypes/5
         [HttpGet("{id}")]
         public async Task<ActionResult<InspectionType>> GetInspectionType(int id)
         {
-            var inspectionType = await _context.InspectionTypes.FindAsync(id);
+            var inspectionType = await _context.InspectionTypes!.FindAsync(id);
 
             if (inspectionType == null)
             {
@@ -71,7 +71,7 @@ namespace API.Controllers
         [HttpPost]
         public async Task<ActionResult<InspectionType>> PostInspectionType(InspectionType inspectionType)
         {
-            _context.InspectionTypes.Add(inspectionType);
+            _context.InspectionTypes!.Add(inspectionType);
             await _context.SaveChangesAsync();
 
             return CreatedAtAction("GetInspectionType", new { id = inspectionType.Id }, inspectionType);
@@ -81,7 +81,7 @@ namespace API.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteInspectionType(int id)
         {
-            var inspectionType = await _context.InspectionTypes.FindAsync(id);
+            var inspectionType = await _context.InspectionTypes!.FindAsync(id);
             if (inspectionType == null)
             {
                 return NotFound();
@@ -95,7 +95,7 @@ namespace API.Controllers
 
         private bool InspectionTypeExists(int id)
         {
-            return _context.InspectionTypes.Any(e => e.Id == id);
+            return _context.InspectionTypes!.Any(e => e.Id == id);
         }
     }
 }

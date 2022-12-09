@@ -19,14 +19,14 @@ namespace API.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Inspection>>> GetInspections()
         {
-            return await _context.Inspections.ToListAsync();
+            return await _context.Inspections!.ToListAsync();
         }
 
         // GET: api/Inspections/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Inspection>> GetInspection(int id)
         {
-            var inspection = await _context.Inspections.FindAsync(id);
+            var inspection = await _context.Inspections!.FindAsync(id);
 
             if (inspection == null)
             {
@@ -72,7 +72,7 @@ namespace API.Controllers
         [HttpPost]
         public async Task<ActionResult<Inspection>> PostInspection(Inspection inspection)
         {
-            _context.Inspections.Add(inspection);
+            _context.Inspections!.Add(inspection);
             await _context.SaveChangesAsync();
 
             return CreatedAtAction("GetInspection", new { id = inspection.Id }, inspection);
@@ -82,7 +82,7 @@ namespace API.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteInspection(int id)
         {
-            var inspection = await _context.Inspections.FindAsync(id);
+            var inspection = await _context.Inspections!.FindAsync(id);
             if (inspection == null)
             {
                 return NotFound();
@@ -96,7 +96,7 @@ namespace API.Controllers
 
         private bool InspectionExists(int id)
         {
-            return _context.Inspections.Any(e => e.Id == id);
+            return _context.Inspections!.Any(e => e.Id == id);
         }
     }
 }
