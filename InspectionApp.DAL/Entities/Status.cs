@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace API.Entity
+namespace InspectionApp.DAL.Entities
 {
     public class Status : BaseEntity
     { 

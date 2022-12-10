@@ -2,9 +2,9 @@
 
 #nullable disable
 
-namespace API.Migrations
+namespace InspectionApp.DAL.Migrations
 {
-    public partial class IntialCreate : Migration
+    public partial class InitialCreate : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

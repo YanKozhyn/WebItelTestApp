@@ -1,5 +1,5 @@
-﻿using API.Data;
-using API.Entity;
+﻿using InspectionApp.DAL.Data;
+using InspectionApp.DAL.Entities;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 

@@ -1,7 +1,7 @@
-﻿using API.Entity;
+﻿using InspectionApp.DAL.Entities;
 using Microsoft.EntityFrameworkCore;
 
-namespace API.Data
+namespace InspectionApp.DAL.Data
 {
     public class DataContext : DbContext
     {

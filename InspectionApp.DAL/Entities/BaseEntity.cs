@@ -1,4 +1,4 @@
-﻿namespace API.Entity
+﻿namespace InspectionApp.DAL.Entities
 {
     public class BaseEntity
     {
