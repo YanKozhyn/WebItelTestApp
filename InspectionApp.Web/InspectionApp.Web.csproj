@@ -12,7 +12,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\InspectionApp.DAL\InspectionApp.DAL.csproj" />
+    <ProjectReference Include="..\InspectionApp.BLL\InspectionApp.BLL.csproj" />
+    <ProjectReference Include="..\InspectionApp.Service\InspectionApp.BLL.csproj" />
   </ItemGroup>
 
 </Project>
