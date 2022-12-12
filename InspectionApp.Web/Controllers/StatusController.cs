@@ -12,38 +12,31 @@ namespace API.Controllers
         {
             _statusService = statusService;
         }
-
-        // GET: api/Inspections
+        
         [HttpGet]
-        public async Task<IActionResult> GetInspections()
+        public async Task<IActionResult> GetStatuses()
             => Ok(await _statusService.GetAllAsync());
 
-        // GET: api/Inspections/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<StatusDto>> GetInspections(int id)
+        public async Task<ActionResult<StatusDto>> GetStatuses(int id)
             => Ok(await _statusService.GetByIdAsync(id));
 
-        // PUT: api/Inspections/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<ActionResult> PutInspection(int id, StatusDto statusDto)
+        public async Task<ActionResult> PutStatus(int id, StatusDto statusDto)
         {
             await _statusService.UpdateAsync(id, statusDto);
             return NoContent();
         }
 
-        // POST: api/Inspections
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<StatusDto>> PostInspection(StatusDto statusDto)
+        public async Task<ActionResult<StatusDto>> PostStatus(StatusDto statusDto)
         {
             await _statusService.CreateAsync(statusDto);
-            return CreatedAtAction(nameof(GetInspections), new { id = statusDto.Id }, statusDto);
+            return CreatedAtAction(nameof(GetStatuses), new { id = statusDto.Id }, statusDto);
         }
 
-        // DELETE: api/Inspections/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteInspection(int id)
+        public async Task<IActionResult> DeleteStatus(int id)
         {
             await _statusService.DeleteAsync(id);
             return NoContent();

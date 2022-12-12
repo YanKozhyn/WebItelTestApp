@@ -6,7 +6,6 @@ using InspectionApp.DAL.Data;
 using InspectionApp.DAL.Entities;
 using Microsoft.EntityFrameworkCore;
 
-
 namespace InspectionApp.BLL.Services
 {
     public class StatusService : IHelperService<StatusDto>

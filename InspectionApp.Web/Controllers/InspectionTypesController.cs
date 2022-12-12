@@ -13,37 +13,30 @@ namespace API.Controllers
             _inspectionTypeService = inspectionTypeService;
         }
 
-        // GET: api/Inspections
         [HttpGet]
-        public async Task<IActionResult> GetInspections()
+        public async Task<IActionResult> GetInspectionTypes()
             => Ok(await _inspectionTypeService.GetAllAsync());
 
-        // GET: api/Inspections/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<InspectionTypeDto>> GetInspections(int id)
+        public async Task<ActionResult<InspectionTypeDto>> GetInspectionTypes(int id)
             => Ok(await _inspectionTypeService.GetByIdAsync(id));
 
-        // PUT: api/Inspections/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<ActionResult> PutInspection(int id, InspectionTypeDto inspectionTypeDto)
+        public async Task<ActionResult> PutInspectionType(int id, InspectionTypeDto inspectionTypeDto)
         {
             await _inspectionTypeService.UpdateAsync(id, inspectionTypeDto);
             return NoContent();
         }
-
-        // POST: api/Inspections
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<InspectionTypeDto>> PostInspection(InspectionTypeDto inspectionTypeDto)
+        public async Task<ActionResult<InspectionTypeDto>> PostInspectionType(InspectionTypeDto inspectionTypeDto)
         {
             await _inspectionTypeService.CreateAsync(inspectionTypeDto);
-            return CreatedAtAction(nameof(GetInspections), new { id = inspectionTypeDto.Id }, inspectionTypeDto);
+            return CreatedAtAction(nameof(GetInspectionTypes), new { id = inspectionTypeDto.Id }, inspectionTypeDto);
         }
 
         // DELETE: api/Inspections/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteInspection(int id)
+        public async Task<IActionResult> DeleteInspectionType(int id)
         {
             await _inspectionTypeService.DeleteAsync(id);
             return NoContent();

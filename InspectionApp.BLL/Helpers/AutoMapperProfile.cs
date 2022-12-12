@@ -9,7 +9,10 @@ namespace InspectionApp.BLL.Helpers
         public AutoMapperProfile()
         {
             CreateMap<Inspection, InspectionDto>().ReverseMap();
-                
+            CreateMap<InspectionType, InspectionTypeDto>().ReverseMap();
+            CreateMap<Status, StatusDto>().ReverseMap();
+            CreateMap<Inspector, InspectorDto>().ReverseMap();
+
         }
     }
 }
