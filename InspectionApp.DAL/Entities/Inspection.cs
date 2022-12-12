@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace API.Entity
+namespace InspectionApp.DAL.Entities
 {
     public class Inspection : BaseEntity
     {
@@ -10,6 +10,9 @@ namespace API.Entity
         [StringLength(200)]
         public string Comments { get; set; } = string.Empty;
         public int InspectionTypeId { get; set; }
+        public int? InspectorId { get; set; }
+        public Inspector? Inspector { get; set; }
         public InspectionType? InspectionType { get; set; }
+       
     }
 }
